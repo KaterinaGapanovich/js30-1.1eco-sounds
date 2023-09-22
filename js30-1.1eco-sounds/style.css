@@ -70,6 +70,26 @@ body{
     color: #BBAC82;;
 }
 
+.active_solovey{
+    color: #BBAC82;
+}
+
+.active_drozd{
+    color: #BBAC82;
+}
+
+.active_malinovka{
+    color: #BBAC82;
+}
+
+.active_javoronok{
+    color: #BBAC82;
+}
+
+.active_slavka{
+    color: #BBAC82;
+}
+
 .main_class{
     display: flex;
     justify-content: center;
