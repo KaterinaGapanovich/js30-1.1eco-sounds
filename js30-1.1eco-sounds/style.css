@@ -1,1 +1,195 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth; 
+  }
 
+body{
+    min-width: 320px;
+    background-color: black;
+    color: white;
+    font-family: Montserrat;
+    font-size: 30px;
+    margin: 0;
+}
+
+.header_img_and_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logotip{
+    width: 1%;
+    margin-left: 30px;
+    margin-top: 15px;
+    fill: #fff;
+}
+
+.logotip:hover svg {
+    fill: #BBAC82;
+    cursor: pointer;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    list-style-type:  none;
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+.name_solovey:hover{
+    cursor: pointer;
+    color: #BBAC82;;
+}
+
+.name_drozd:hover{
+    cursor: pointer;
+    color: #BBAC82;;
+}
+
+.name_malinovka:hover{
+    cursor: pointer;
+    color: #BBAC82;;
+}
+.name_zavoronok:hover{
+    cursor: pointer;
+    color: #BBAC82;;
+}
+
+.name_slavka:hover{
+    cursor: pointer;
+    color: #BBAC82;;
+}
+
+.main_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    background-image: url("../js30-1.1eco-sounds/assets/img/forest.jpg");
+    background-size: cover;
+    transition: 1s;
+}
+
+.solovey_main_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    background-size: cover;
+    background-image: url("../js30-1.1eco-sounds/assets/img/solovey.jpg");
+    transition: 1s;
+}
+
+.drozd_main_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    background-size: cover;
+    background-image: url("../js30-1.1eco-sounds/assets/img/drozd.jpg");
+    transition: 1s;
+}
+
+.malinovka_main_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    background-size: cover;
+    background-image: url("../js30-1.1eco-sounds/assets/img/zarynka.jpg");
+    transition: 1s;
+}
+
+.zavoronok_main_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    background-size: cover;
+    background-image: url("../js30-1.1eco-sounds/assets/img/javoronok.jpg");
+    transition: 1s;
+}
+
+.slavka_main_class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 150px);
+    background-size: cover;
+    background-image: url("../js30-1.1eco-sounds/assets/img/slavka.jpg");
+    transition: 1s;
+}
+
+/*.img_solovey, .img_drozd, .img_malinovka,
+.img_javoronok, .img_slavka{
+    width: 100%;
+}
+
+.img_drozd, .img_malinovka,
+.img_javoronok, .img_slavka{
+    display: none;
+}*/
+
+.baton_play{
+    border: 0;
+    width: 120px;
+    height: 120px;
+    background-color: transparent;
+    background-image: url("../js30-1.1eco-sounds/assets/svg/play.svg");
+    background-size: contain;
+    transition: 0.5s;
+}
+
+.baton_play:hover{
+    width: 161px;
+    height: 161px;
+    cursor: pointer;
+}
+
+.baton_pause{
+    background-image: url("../js30-1.1eco-sounds/assets/svg/pause.svg");
+}
+
+.fotter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left_fotter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.my_github{
+    color: white;
+    text-decoration: none;
+}
+
+.my_github:hover{
+    color: #BBAC82;
+    cursor: pointer;
+}
+
+.rss{
+    margin-right: 25px;
+    margin-bottom: 25px;
+    fill: #fff;
+}
+
+.rss:hover{
+    fill: #BBAC82;
+    cursor: pointer;
+}
