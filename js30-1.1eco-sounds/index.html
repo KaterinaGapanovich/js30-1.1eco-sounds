@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ecosounds</title>
+    <title>audio-player</title>
     <link rel="shortcut icon" href="../js30-1.1eco-sounds/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<main class="all_haff">
+    
+    <div class="img_backgr" ></div>
+    <img class="image_back" src="../js30-1.1eco-sounds/assets/img/iskorki.jpg" alt="iskorki">
+    <audio class="my_song" src="../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3"></audio>
+
+    <div class="audio_player">
+        <div class="audio_img">
+            <img class="image" src="../js30-1.1eco-sounds/assets/img/iskorki.jpg" alt="iskorki">
+        </div>
+        <div class="audio_text">
+            <div class="audio_autor_song" >
+                <div class="audio_autor">5УТРА</div>
+                <div class="audio_song">Искорки</div>
+            </div>
+            <div class="audio_buttons" >
+                <div class="conteiner_arrow_next">
+                   <img src="../js30-1.1eco-sounds/assets/svg/backward.png" alt="back" width="55px">
+                </div>
+                <div class="conteiner_arrow_play">
+                    <!-- <img src="../js30-1.1eco-sounds/assets/svg/play.png" alt="play" width="80px"> -->
+                </div>
+                <div class="conteiner_arrow_befor">
+                    <img src="../js30-1.1eco-sounds/assets/svg/forward.png" alt="for" width="55px">
+                </div>
+            </div>
+        </div>
+        <div class="audio_progressbar" >
+            <input class="progress_bar" type="range" min="0" max="350" value="0">
+            <div class="time">
+                <div class="under_time"></div>
+                <div class="after_time"></div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!--
     <header>
         <div class="header_img_and_nav">
             <span class="logotip">
@@ -42,14 +82,7 @@
         </div>
     </header>
     <main class="main_class">
-        <!-- 
-        <img class="img_solovey" src="../js30-1.1eco-sounds/assets/img/solovey.jpg" alt="solovei">
-        <img class="img_drozd" src="../js30-1.1eco-sounds/assets/img/drozd.jpg" alt="drozd">
-        <img class="img_malinovka" src="../js30-1.1eco-sounds/assets/img/forest.jpg" alt="malinovka">
-        <img class="img_javoronok" src="../js30-1.1eco-sounds/assets/img/javoronok.jpg" alt="javoronok">
-        <img class="img_slavka" src="../js30-1.1eco-sounds/assets/img/slavka.jpg" alt="slavka">
-        -->
-
+       
         <audio class="solovey_sound" src="../js30-1.1eco-sounds/assets/audio/solovey.mp3"></audio>
         <audio class="drozd_sound" src="../js30-1.1eco-sounds/assets/audio/drozd.mp3"></audio>
         <audio class="malinovka_sound" src="../js30-1.1eco-sounds/assets/audio/zarynka.mp3"></audio>
@@ -57,16 +90,16 @@
         <audio class="slavka_sound" src="../js30-1.1eco-sounds/assets/audio/slavka.mp3"></audio>
 
         <button class="baton_play"></button>
-        <!--<img src="../js30-1.1eco-sounds/assets/svg/play.svg" alt="play" width="120"> -->
-        <!--<button class="baton_pause"><img src="../js30-1.1eco-sounds/assets/svg/pause.svg" alt="pause" width="120"> </button> -->
+        
     </main>
+ -->
     <footer>
         <div class="fotter">
             <div class="left_fotter">
                 <img src="../js30-1.1eco-sounds/assets/svg/GitHub-Background-PNG.png">
                 <a class="my_github" href="https://github.com/KaterinaGapanovich">github</a>
+                <p>KaterinaG.</p>
                 <p>2023</p>
-                <p>©</p>
             </div>
             <a class="rss" href="https://rs.school/js-stage0/">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="200" height="80" viewBox="0 0 242 90">
@@ -76,6 +109,7 @@
             </a>
         </div>
     </footer>
+   
 
     <script src="../js30-1.1eco-sounds/script.js"></script>
 </body>
