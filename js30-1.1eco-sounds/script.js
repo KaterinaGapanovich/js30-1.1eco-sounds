@@ -31,12 +31,14 @@ function justPlayAudio() {
         isPlayButton = true;
         buttonPlayArrow.classList.remove('conteiner_arrow_play');
     buttonPlayArrow.classList.add('button_pause');
+    buttonPlayArrow.classList.add('after_click');
         fotoSingerImg.style.transform = "scale(1.1)";
     } else{
         audioplayer.pause();
         isPlayButton = false;
         buttonPlayArrow.classList.remove('button_pause');
     buttonPlayArrow.classList.add('conteiner_arrow_play');
+    buttonPlayArrow.classList.remove('after_click');
         fotoSingerImg.style.transform = "scale(1)";
     }
 
