@@ -112,6 +112,12 @@ body{
     cursor: pointer;
 }
 
+.after_click{
+    background-color: rgb(120, 173, 191);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.792);
+    cursor: pointer;
+}
+
 .button_pause{
     width: 80px;
     height: 80px;
@@ -120,6 +126,8 @@ body{
     background-size: contain;
     transition: 1s;
 }
+
+
 
 .progress_bar{
     width: 175pt;
