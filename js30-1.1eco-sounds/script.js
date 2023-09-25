@@ -1,4 +1,91 @@
 const audioplayer = document.querySelector('audio');
+const buttonPlayArrow = document.querySelector('.conteiner_arrow_play')
+const imageBackgr = document.querySelector('.image_back');
+
+const buttonNextArrow =document.querySelector('.conteiner_arrow_next');
+const buttonBeforArrow =document.querySelector('.conteiner_arrow_befor');
+const fotoSingerImg =document.querySelector('.image');
+
+const changeSong =document.querySelector('.my_song');
+
+const audio = new Audio();
+
+let isPlayButton = false;
+
+let playNumberClick = 0;
+let numberSong = 0;
+allSongs = ['../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3', '../js30-1.1eco-sounds/assets/audio/2NeVspominai.mp3', '../js30-1.1eco-sounds/assets/audio/3DaBro.mp3'];
+fotoSingersImg =['../js30-1.1eco-sounds/assets/img/iskorki.jpg', '../js30-1.1eco-sounds/assets/img/nevspominai.jpg', '../js30-1.1eco-sounds/assets/img/dabro.jpg'];
+singers = ['5УТРА', 'NILETTO, Лёша Свик, Олег Майами', 'Dabro'];
+nameSongs =['Искорки', 'Не вспоминай', 'Юность'];
+
+
+function justPlayAudio() {
+    audioplayer.currentTime = 0;
+    audioplayer.play();
+
+    if (!isPlayButton){
+        audioplayer.play();
+        isPlayButton = true;
+        fotoSingerImg.style.transform = "scale(1.1)";
+    } else{
+        audioplayer.pause();
+        isPlayButton = false;
+        fotoSingerImg.style.transform = "scale(1)";
+    }
+
+
+
+    //imageBackgr.classList.remove('img_backgr');
+    //imageBackgr.classList.add('img_backgr_2');
+
+}
+
+function toggleButton(){
+    buttonPlayArrow.classList.toggle('button_pause');
+}
+
+
+function clickNextSong(){
+    numberSong++;
+    if(numberSong>2){
+        numberSong=0;
+        fotoSingerImg.style.transform = "scale(1.1)";
+        
+    }
+    imageBackgr.src = fotoSingersImg[numberSong];
+    fotoSingerImg.src = fotoSingersImg[numberSong];
+    changeSong.src = allSongs[numberSong];
+
+    isPlayButton = false;
+    justPlayAudio();
+    toggleButton();
+}
+
+function clickBeforSong(){
+    numberSong--;
+    if(numberSong<0){
+        numberSong=2;
+        fotoSingerImg.style.transform = "scale(1.1)";
+        
+    }
+    imageBackgr.src = fotoSingersImg[numberSong];
+    fotoSingerImg.src = fotoSingersImg[numberSong];
+    changeSong.src = allSongs[numberSong];
+    
+
+    isPlayButton = false;
+    justPlayAudio();
+    toggleButton();
+}
+
+buttonPlayArrow.addEventListener('click', justPlayAudio);
+buttonPlayArrow.addEventListener('click', toggleButton);
+buttonNextArrow.addEventListener('click', clickNextSong);
+buttonBeforArrow.addEventListener('click', clickBeforSong);
+
+/*
+const audioplayer = document.querySelector('audio');
 const batonPlay = document.querySelector('.baton_play');
 //const batonPause = document.querySelector('.baton_pause');
 const mainSection = document.querySelector('.main_class');
@@ -132,4 +219,6 @@ slavkaPlay.addEventListener('click', justSlavkaPlay);
 //batonPause.addEventListener('click', justPauseAudio);
 
 //function playBaton(){}
+*/
+
 

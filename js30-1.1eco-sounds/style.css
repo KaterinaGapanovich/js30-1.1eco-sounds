@@ -10,13 +10,140 @@
 
 body{
     min-width: 320px;
-    background-color: black;
-    color: white;
     font-family: Montserrat;
+    background-color: rgb(84, 123, 136);
     font-size: 30px;
     margin: 0;
+    color: white;
 }
 
+.all_haff{
+    min-width: 100%;
+    height: calc(100vh - 85px);
+    margin: 0 auto;
+}
+
+.image_back{
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    background-image: url("../js30-1.1eco-sounds/assets/img/iskorki.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1s;
+}
+
+
+.audio_player{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 600px;
+    background-color:rgb(84, 123, 136);
+    border: 10px outset rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.audio_img{
+    max-width: 450px;
+   height: 300;
+    overflow: hidden;
+}
+
+.audio_autor{
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    transition: 1s;
+}
+
+.audio_song{
+    color: rgb(31, 47, 52);
+    font-size: 20px;
+    text-align: center;
+    transition: 1s;
+}
+
+.audio_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.conteiner_arrow_next, .conteiner_arrow_befor{
+    width: 48px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.conteiner_arrow_next:hover{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.792);
+    cursor: pointer;
+}
+
+.conteiner_arrow_befor:hover{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.792);
+    cursor: pointer;
+}
+
+.conteiner_arrow_play{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url("../js30-1.1eco-sounds/assets/svg/play.png");
+    background-size: contain;
+    transition: 1s;
+}
+
+.conteiner_arrow_play:hover{
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.792);
+    cursor: pointer;
+}
+
+.button_pause{
+    background-image: url("../js30-1.1eco-sounds/assets/svg/pause.png");
+}
+
+.progress_bar{
+    width: 175pt;
+    margin-left: 23%;
+    height: 5px;
+}
+
+.time{
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.under_time{
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+}
+
+.after_time{
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+}
+
+/*
 .header_img_and_nav{
     display: flex;
     flex-direction: row;
@@ -150,16 +277,6 @@ body{
     transition: 1s;
 }
 
-/*.img_solovey, .img_drozd, .img_malinovka,
-.img_javoronok, .img_slavka{
-    width: 100%;
-}
-
-.img_drozd, .img_malinovka,
-.img_javoronok, .img_slavka{
-    display: none;
-}*/
-
 .baton_play{
     border: 0;
     width: 120px;
@@ -179,7 +296,7 @@ body{
 .baton_pause{
     background-image: url("../js30-1.1eco-sounds/assets/svg/pause.svg");
 }
-
+*/
 .fotter{
     display: flex;
     flex-direction: row;
@@ -213,3 +330,4 @@ body{
     fill: #BBAC82;
     cursor: pointer;
 }
+
