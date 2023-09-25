@@ -7,6 +7,8 @@ const buttonBeforArrow =document.querySelector('.conteiner_arrow_befor');
 const fotoSingerImg =document.querySelector('.image');
 
 const changeSong =document.querySelector('.my_song');
+const nameSinger = document.querySelector('.audio_autor');
+const nameSong =document.querySelector('.audio_song');
 
 const audio = new Audio();
 
@@ -14,11 +16,11 @@ let isPlayButton = false;
 
 let playNumberClick = 0;
 let numberSong = 0;
-allSongs = ['../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3', '../js30-1.1eco-sounds/assets/audio/2NeVspominai.mp3', '../js30-1.1eco-sounds/assets/audio/3DaBro.mp3'];
+
 fotoSingersImg =['../js30-1.1eco-sounds/assets/img/iskorki.jpg', '../js30-1.1eco-sounds/assets/img/nevspominai.jpg', '../js30-1.1eco-sounds/assets/img/dabro.jpg'];
 singers = ['5УТРА', 'NILETTO, Лёша Свик, Олег Майами', 'Dabro'];
 nameSongs =['Искорки', 'Не вспоминай', 'Юность'];
-
+allSongs = ['../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3', '../js30-1.1eco-sounds/assets/audio/2NeVspominai.mp3', '../js30-1.1eco-sounds/assets/audio/3DaBro.mp3'];
 
 function justPlayAudio() {
     audioplayer.currentTime = 0;
@@ -27,10 +29,14 @@ function justPlayAudio() {
     if (!isPlayButton){
         audioplayer.play();
         isPlayButton = true;
+        buttonPlayArrow.classList.remove('conteiner_arrow_play');
+    buttonPlayArrow.classList.add('button_pause');
         fotoSingerImg.style.transform = "scale(1.1)";
     } else{
         audioplayer.pause();
         isPlayButton = false;
+        buttonPlayArrow.classList.remove('button_pause');
+    buttonPlayArrow.classList.add('conteiner_arrow_play');
         fotoSingerImg.style.transform = "scale(1)";
     }
 
@@ -41,9 +47,16 @@ function justPlayAudio() {
 
 }
 
-function toggleButton(){
-    buttonPlayArrow.classList.toggle('button_pause');
-}
+//function toggleButton(){
+   // buttonPlayArrow.classList.remove('conteiner_arrow_play');
+   // buttonPlayArrow.classList.add('button_pause');
+//}
+
+//function toggleButton2(){
+   // buttonPlayArrow.classList.remove('button_pause');
+    //buttonPlayArrow.classList.add('conteiner_arrow_play');
+//}
+
 
 
 function clickNextSong(){
@@ -55,11 +68,16 @@ function clickNextSong(){
     }
     imageBackgr.src = fotoSingersImg[numberSong];
     fotoSingerImg.src = fotoSingersImg[numberSong];
+    nameSinger.innerHTML = singers[numberSong];
+    nameSong.innerHTML = nameSongs[numberSong];
     changeSong.src = allSongs[numberSong];
+
+    buttonPlayArrow.classList.remove('conteiner_arrow_play');
+    buttonPlayArrow.classList.add('button_pause');
 
     isPlayButton = false;
     justPlayAudio();
-    toggleButton();
+    //toggleButton();
 }
 
 function clickBeforSong(){
@@ -71,16 +89,21 @@ function clickBeforSong(){
     }
     imageBackgr.src = fotoSingersImg[numberSong];
     fotoSingerImg.src = fotoSingersImg[numberSong];
+    nameSinger.innerHTML = singers[numberSong];
+    nameSong.innerHTML = nameSongs[numberSong];
     changeSong.src = allSongs[numberSong];
     
+    buttonPlayArrow.classList.remove('conteiner_arrow_play');
+    buttonPlayArrow.classList.add('button_pause');
 
     isPlayButton = false;
     justPlayAudio();
-    toggleButton();
+    //toggleButton();
+    //toggleButton2();
 }
 
 buttonPlayArrow.addEventListener('click', justPlayAudio);
-buttonPlayArrow.addEventListener('click', toggleButton);
+//buttonPlayArrow.addEventListener('click', toggleButton);
 buttonNextArrow.addEventListener('click', clickNextSong);
 buttonBeforArrow.addEventListener('click', clickBeforSong);
 
