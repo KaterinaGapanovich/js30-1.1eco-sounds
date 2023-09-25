@@ -55,16 +55,19 @@ body{
 }
 
 .audio_autor{
+    width: 330px;
+    margin: 0 auto;
+    padding-top: 10px;
     color: black;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     transition: 1s;
 }
 
 .audio_song{
     color: rgb(31, 47, 52);
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     transition: 1s;
 }
@@ -110,7 +113,12 @@ body{
 }
 
 .button_pause{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     background-image: url("../js30-1.1eco-sounds/assets/svg/pause.png");
+    background-size: contain;
+    transition: 1s;
 }
 
 .progress_bar{
