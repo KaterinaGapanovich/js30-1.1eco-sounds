@@ -2,13 +2,15 @@ const audioplayer = document.querySelector('audio');
 const buttonPlayArrow = document.querySelector('.conteiner_arrow_play')
 const imageBackgr = document.querySelector('.image_back');
 
-const buttonNextArrow =document.querySelector('.conteiner_arrow_next');
-const buttonBeforArrow =document.querySelector('.conteiner_arrow_befor');
-const fotoSingerImg =document.querySelector('.image');
+const buttonNextArrow = document.querySelector('.conteiner_arrow_next');
+const buttonBeforArrow = document.querySelector('.conteiner_arrow_befor');
+const fotoSingerImg = document.querySelector('.image');
 
-const changeSong =document.querySelector('.my_song');
+const changeSong = document.querySelector('#my_song');
 const nameSinger = document.querySelector('.audio_autor');
-const nameSong =document.querySelector('.audio_song');
+const nameSong = document.querySelector('.audio_song');
+
+const justProgressBar = document.querySelector('#progress_bar');
 
 const audio = new Audio();
 
@@ -17,32 +19,30 @@ let isPlayButton = false;
 let playNumberClick = 0;
 let numberSong = 0;
 
-fotoSingersImg =['../js30-1.1eco-sounds/assets/img/iskorki.jpg', '../js30-1.1eco-sounds/assets/img/nevspominai.jpg', '../js30-1.1eco-sounds/assets/img/dabro.jpg'];
+fotoSingersImg = ['../js30-1.1eco-sounds/assets/img/iskorki.jpg', '../js30-1.1eco-sounds/assets/img/nevspominai.jpg', '../js30-1.1eco-sounds/assets/img/dabro.jpg'];
 singers = ['5УТРА', 'NILETTO, Лёша Свик, Олег Майами', 'Dabro'];
-nameSongs =['Искорки', 'Не вспоминай', 'Юность'];
+nameSongs = ['Искорки', 'Не вспоминай', 'Юность'];
 allSongs = ['../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3', '../js30-1.1eco-sounds/assets/audio/2NeVspominai.mp3', '../js30-1.1eco-sounds/assets/audio/3DaBro.mp3'];
 
 function justPlayAudio() {
     audioplayer.currentTime = 0;
     audioplayer.play();
 
-    if (!isPlayButton){
+    if (!isPlayButton) {
         audioplayer.play();
         isPlayButton = true;
         buttonPlayArrow.classList.remove('conteiner_arrow_play');
-    buttonPlayArrow.classList.add('button_pause');
-    buttonPlayArrow.classList.add('after_click');
+        buttonPlayArrow.classList.add('button_pause');
+        buttonPlayArrow.classList.add('after_click');
         fotoSingerImg.style.transform = "scale(1.1)";
-    } else{
+    } else {
         audioplayer.pause();
         isPlayButton = false;
         buttonPlayArrow.classList.remove('button_pause');
-    buttonPlayArrow.classList.add('conteiner_arrow_play');
-    buttonPlayArrow.classList.remove('after_click');
+        buttonPlayArrow.classList.add('conteiner_arrow_play');
+        buttonPlayArrow.classList.remove('after_click');
         fotoSingerImg.style.transform = "scale(1)";
     }
-
-
 
     //imageBackgr.classList.remove('img_backgr');
     //imageBackgr.classList.add('img_backgr_2');
@@ -50,23 +50,23 @@ function justPlayAudio() {
 }
 
 //function toggleButton(){
-   // buttonPlayArrow.classList.remove('conteiner_arrow_play');
-   // buttonPlayArrow.classList.add('button_pause');
+// buttonPlayArrow.classList.remove('conteiner_arrow_play');
+// buttonPlayArrow.classList.add('button_pause');
 //}
 
 //function toggleButton2(){
-   // buttonPlayArrow.classList.remove('button_pause');
-    //buttonPlayArrow.classList.add('conteiner_arrow_play');
+// buttonPlayArrow.classList.remove('button_pause');
+//buttonPlayArrow.classList.add('conteiner_arrow_play');
 //}
 
 
 
-function clickNextSong(){
+function clickNextSong() {
     numberSong++;
-    if(numberSong>2){
-        numberSong=0;
+    if (numberSong > 2) {
+        numberSong = 0;
         fotoSingerImg.style.transform = "scale(1.1)";
-        
+
     }
     imageBackgr.src = fotoSingersImg[numberSong];
     fotoSingerImg.src = fotoSingersImg[numberSong];
@@ -82,19 +82,19 @@ function clickNextSong(){
     //toggleButton();
 }
 
-function clickBeforSong(){
+function clickBeforSong() {
     numberSong--;
-    if(numberSong<0){
-        numberSong=2;
+    if (numberSong < 0) {
+        numberSong = 2;
         fotoSingerImg.style.transform = "scale(1.1)";
-        
+
     }
     imageBackgr.src = fotoSingersImg[numberSong];
     fotoSingerImg.src = fotoSingersImg[numberSong];
     nameSinger.innerHTML = singers[numberSong];
     nameSong.innerHTML = nameSongs[numberSong];
     changeSong.src = allSongs[numberSong];
-    
+
     buttonPlayArrow.classList.remove('conteiner_arrow_play');
     buttonPlayArrow.classList.add('button_pause');
 
@@ -103,6 +103,70 @@ function clickBeforSong(){
     //toggleButton();
     //toggleButton2();
 }
+
+/*audio.addEventListener("music",() => {
+        justProgressBar.querySelector(".time .after_time").textContent = getTimeCodeFromNum(
+        audio.duration );
+    }, false);
+
+  const timeline = justProgressBar.querySelector(".timeline_bar");
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
+
+setInterval(() => {
+    const progressBar = justProgressBar.querySelector(".progress_bar");
+    progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+    justProgressBar.querySelector(".time .under_time").textContent = getTimeCodeFromNum(
+      audio.currentTime
+    );
+  }, 500);
+
+
+  function getTimeCodeFromNum(num) {
+    let seconds = parseInt(num);
+    let minutes = parseInt(seconds / 60);
+    seconds -= minutes * 60;
+    const hours = parseInt(minutes / 60);
+    minutes -= hours * 60;
+  
+    if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+    return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+      seconds % 60
+    ).padStart(2, 0)}`;
+  }*/
+
+function startJustProgressBar() {
+    const underTime = document.querySelector('.under_time');
+    const afterTime = document.querySelector('.after_time');
+
+    justProgressBar.max = changeSong.afters;
+    justProgressBar.value = changeSong.under;
+    underTime.innerHTML = (getTime(Math.floor(changeSong.under)));
+    if (afterTime.innerHTML === "NaN:NaN") {
+        afterTime.innerHTML = "0:00";
+    } else {
+        afterTime.innerHTML = (getTime(Math.floor(changeSong.afters)));
+    }
+}
+
+function getTime(secondsTime) {
+    let minutes = Math.floor((secondsTime / 60));
+    let seconds = Math.floor(secondsTime - (minutes * 60));
+    if (seconds < 10) {
+        seconds = `0${seconds}`;
+    };
+    return `${minutes}:${seconds}`;
+};
+
+setInterval(startJustProgressBar, 500);
+
+function justProgressBarChange() {
+    changeSong.under = justProgressBar.value;
+};
+
 
 buttonPlayArrow.addEventListener('click', justPlayAudio);
 //buttonPlayArrow.addEventListener('click', toggleButton);
