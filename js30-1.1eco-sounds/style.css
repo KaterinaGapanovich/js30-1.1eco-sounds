@@ -41,7 +41,7 @@ body{
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 450px;
-    height: 600px;
+    height: 575px;
     background-color:rgb(84, 123, 136);
     border: 10px outset rgba(255, 255, 255, 0.6);
     border-radius: 50px;
@@ -50,7 +50,7 @@ body{
 
 .audio_img{
     max-width: 450px;
-   height: 300;
+   height: 300px;
     overflow: hidden;
 }
 
@@ -128,26 +128,28 @@ body{
 }
 
 
-
-.progress_bar{
-    width: 175pt;
-    margin-left: 23%;
-    height: 5px;
+.audio_progressbar{
+    margin-left: 60px;
 }
 
+.progress_bar{
+    background: rgb(19, 87, 132);
+    width: 300px;
+}
+
+
 .time{
-    width: 200px;
-    margin: 0 auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+   width: 290px;
+   
 }
 
 .under_time{
     width: 50px;
     height: 50px;
     font-size: 15px;
-    color: black;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
@@ -155,7 +157,7 @@ body{
     width: 50px;
     height: 50px;
     font-size: 15px;
-    color: black;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
