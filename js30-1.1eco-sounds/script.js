@@ -27,7 +27,7 @@ nameSongs = ['Искорки', 'Не вспоминай', 'Юность'];
 allSongs = ['../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3', '../js30-1.1eco-sounds/assets/audio/2NeVspominai.mp3', '../js30-1.1eco-sounds/assets/audio/3DaBro.mp3'];
 
 function justPlayAudio() {
-    audioplayer.currentTime = 0;
+    
     audioplayer.play();
 
     if (!isPlayButton) {
@@ -38,6 +38,8 @@ function justPlayAudio() {
         buttonPlayArrow.classList.add('after_click');
         fotoSingerImg.style.transform = "scale(1.1)"; 
         
+        //audioplayer.currentTime = 0;
+
         audioPlayerMusicProgressBar.play();
     } else {
         audioplayer.pause();
@@ -81,7 +83,7 @@ function clickNextSong() {
     fotoSingerImg.src = fotoSingersImg[numberSong];
     nameSinger.innerHTML = singers[numberSong];
     nameSong.innerHTML = nameSongs[numberSong];
-    changeSong.src = allSongs[numberSong];
+    //changeSong.src = allSongs[numberSong];
 
     forcontrols.src=allSongs[numberSong];
 
@@ -104,7 +106,7 @@ function clickBeforSong() {
     fotoSingerImg.src = fotoSingersImg[numberSong];
     nameSinger.innerHTML = singers[numberSong];
     nameSong.innerHTML = nameSongs[numberSong];
-    changeSong.src = allSongs[numberSong];
+    //changeSong.src = allSongs[numberSong];
 
     forcontrols.src=allSongs[numberSong];
 
