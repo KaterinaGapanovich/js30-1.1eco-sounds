@@ -10,6 +10,8 @@ const changeSong = document.querySelector('#my_song');
 const nameSinger = document.querySelector('.audio_autor');
 const nameSong = document.querySelector('.audio_song');
 
+const forcontrols =document.querySelector('#audio-player');
+
 const justProgressBar = document.querySelector('#progress_bar');
 
 const audio = new Audio();
@@ -20,7 +22,7 @@ let playNumberClick = 0;
 let numberSong = 0;
 
 fotoSingersImg = ['../js30-1.1eco-sounds/assets/img/iskorki.jpg', '../js30-1.1eco-sounds/assets/img/nevspominai.jpg', '../js30-1.1eco-sounds/assets/img/dabro.jpg'];
-singers = ['5УТРА', 'NILETTO, Лёша Свик, Олег Майами', 'Dabro'];
+singers = ['5УТРА', 'NILETTO, Свик, Майами', 'Dabro'];
 nameSongs = ['Искорки', 'Не вспоминай', 'Юность'];
 allSongs = ['../js30-1.1eco-sounds/assets/audio/1Iskorki.mp3', '../js30-1.1eco-sounds/assets/audio/2NeVspominai.mp3', '../js30-1.1eco-sounds/assets/audio/3DaBro.mp3'];
 
@@ -34,7 +36,9 @@ function justPlayAudio() {
         buttonPlayArrow.classList.remove('conteiner_arrow_play');
         buttonPlayArrow.classList.add('button_pause');
         buttonPlayArrow.classList.add('after_click');
-        fotoSingerImg.style.transform = "scale(1.1)";
+        fotoSingerImg.style.transform = "scale(1.1)"; 
+        
+        audioPlayer.play();
     } else {
         audioplayer.pause();
         isPlayButton = false;
@@ -42,7 +46,12 @@ function justPlayAudio() {
         buttonPlayArrow.classList.add('conteiner_arrow_play');
         buttonPlayArrow.classList.remove('after_click');
         fotoSingerImg.style.transform = "scale(1)";
+
+        audioPlayer.pause();
+
     }
+
+   
 
     //imageBackgr.classList.remove('img_backgr');
     //imageBackgr.classList.add('img_backgr_2');
@@ -74,6 +83,8 @@ function clickNextSong() {
     nameSong.innerHTML = nameSongs[numberSong];
     changeSong.src = allSongs[numberSong];
 
+    forcontrols.src=allSongs[numberSong];
+
     buttonPlayArrow.classList.remove('conteiner_arrow_play');
     buttonPlayArrow.classList.add('button_pause');
 
@@ -95,6 +106,8 @@ function clickBeforSong() {
     nameSong.innerHTML = nameSongs[numberSong];
     changeSong.src = allSongs[numberSong];
 
+    forcontrols.src=allSongs[numberSong];
+
     buttonPlayArrow.classList.remove('conteiner_arrow_play');
     buttonPlayArrow.classList.add('button_pause');
 
@@ -104,41 +117,8 @@ function clickBeforSong() {
     //toggleButton2();
 }
 
-/*audio.addEventListener("music",() => {
-        justProgressBar.querySelector(".time .after_time").textContent = getTimeCodeFromNum(
-        audio.duration );
-    }, false);
 
-  const timeline = justProgressBar.querySelector(".timeline_bar");
-timeline.addEventListener("click", e => {
-  const timelineWidth = window.getComputedStyle(timeline).width;
-  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
-  audio.currentTime = timeToSeek;
-}, false);
-
-setInterval(() => {
-    const progressBar = justProgressBar.querySelector(".progress_bar");
-    progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
-    justProgressBar.querySelector(".time .under_time").textContent = getTimeCodeFromNum(
-      audio.currentTime
-    );
-  }, 500);
-
-
-  function getTimeCodeFromNum(num) {
-    let seconds = parseInt(num);
-    let minutes = parseInt(seconds / 60);
-    seconds -= minutes * 60;
-    const hours = parseInt(minutes / 60);
-    minutes -= hours * 60;
-  
-    if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
-    return `${String(hours).padStart(2, 0)}:${minutes}:${String(
-      seconds % 60
-    ).padStart(2, 0)}`;
-  }*/
-
-function startJustProgressBar() {
+/*function startJustProgressBar() {
     const underTime = document.querySelector('.under_time');
     const afterTime = document.querySelector('.after_time');
 
@@ -166,7 +146,31 @@ setInterval(startJustProgressBar, 500);
 function justProgressBarChange() {
     changeSong.under = justProgressBar.value;
 };
+*/
 
+const audioPlayer = document.getElementById("audio-player");
+      const progressBar = document.getElementById("progress-bar");
+      const progressContainer = document.getElementById("progress-container");
+
+      audioPlayer.addEventListener("timeupdate", updateProgressBar);
+
+function updateProgressBar() {
+        const currentTime = audioPlayer.currentTime;
+        const duration = audioPlayer.duration;
+
+        if (!isNaN(duration)) {
+          const progress = (currentTime / duration) * 100;
+          progressBar.style.width = progress + "%";
+        }
+      }
+
+      progressContainer.addEventListener("click", (event) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = event.clientX - rect.left;
+        const containerWidth = rect.width;
+        const seekTime = (clickX / containerWidth) * audioPlayer.duration;
+        audioPlayer.currentTime = seekTime;
+      });
 
 buttonPlayArrow.addEventListener('click', justPlayAudio);
 //buttonPlayArrow.addEventListener('click', toggleButton);
