@@ -38,7 +38,7 @@ function justPlayAudio() {
         buttonPlayArrow.classList.add('after_click');
         fotoSingerImg.style.transform = "scale(1.1)"; 
         
-        audioPlayer.play();
+        audioPlayerMusicProgressBar.play();
     } else {
         audioplayer.pause();
         isPlayButton = false;
@@ -47,7 +47,7 @@ function justPlayAudio() {
         buttonPlayArrow.classList.remove('after_click');
         fotoSingerImg.style.transform = "scale(1)";
 
-        audioPlayer.pause();
+        audioPlayerMusicProgressBar.pause();
 
     }
 
@@ -148,28 +148,28 @@ function justProgressBarChange() {
 };
 */
 
-const audioPlayer = document.getElementById("audio-player");
-      const progressBar = document.getElementById("progress-bar");
-      const progressContainer = document.getElementById("progress-container");
+const audioPlayerMusicProgressBar = document.getElementById("audio-player");
+      const progresssBar = document.getElementById("progresss-bar");
+      const progresssContainer = document.getElementById("progresss-container");
 
-      audioPlayer.addEventListener("timeupdate", updateProgressBar);
+      audioPlayerMusicProgressBar.addEventListener("timeupdate", updateProgressBar);
 
 function updateProgressBar() {
-        const currentTime = audioPlayer.currentTime;
-        const duration = audioPlayer.duration;
+        const currentTime = audioPlayerMusicProgressBar.currentTime;
+        const duration = audioPlayerMusicProgressBar.duration;
 
         if (!isNaN(duration)) {
           const progress = (currentTime / duration) * 100;
-          progressBar.style.width = progress + "%";
+          progresssBar.style.width = progress + "%";
         }
       }
 
-      progressContainer.addEventListener("click", (event) => {
-        const rect = progressContainer.getBoundingClientRect();
-        const clickX = event.clientX - rect.left;
-        const containerWidth = rect.width;
-        const seekTime = (clickX / containerWidth) * audioPlayer.duration;
-        audioPlayer.currentTime = seekTime;
+      progresssContainer.addEventListener("click", (event) => {
+        const rectangle = progresssContainer.getBoundingClientRectangle();
+        const myClick = event.myClient - rectangle.left;
+        const containerWidth = rectangle.width;
+        const seekTime = (myClick / containerWidth) * audioPlayerMusicProgressBar.duration;
+        audioPlayerMusicProgressBar.currentTime = seekTime;
       });
 
 buttonPlayArrow.addEventListener('click', justPlayAudio);
